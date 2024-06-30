@@ -369,6 +369,52 @@ Copy code
   "error": "Not Found"
 }`
 
+**3\. Create a user:**
+
+-   **Endpoint:** POST `/api/users`
+-   **Description:** Creates a new user.
+-   **How to Test:** Send a POST request to `http://localhost:8080/api/users` with a JSON body containing user details.
+-   **Expected Response:** JSON object representing the created user with status 201 Created.
+
+**Example Request Body:**
+
+json
+
+Copy code
+
+`{
+  "username": "new_user",
+  "fullName": "New User",
+  "tasks": []
+}`
+
+**4\. Update a user:**
+
+-   **Endpoint:** PUT `/api/users/{id}`
+-   **Description:** Updates an existing user.
+-   **How to Test:** Replace `{id}` with the user ID and send a PUT request to `http://localhost:8080/api/users/{id}` with updated user details.
+-   **Expected Response:** JSON object representing the updated user.
+
+**Example Request Body:**
+
+json
+
+Copy code
+
+`{
+  "id": 5,
+  "username": "updated_user",
+  "fullName": "Updated User",
+  "tasks": []
+}`
+
+**5\. Delete a user:**
+
+-   **Endpoint:** DELETE `/api/users/{id}`
+-   **Description:** Deletes a user by ID.
+-   **How to Test:** Replace `{id}` with the user ID and send a DELETE request to `http://localhost:8080/api/users/{id}`.
+-   **Expected Response:** No content (204 No Content) if successful.
+
 This version provides a clear and concise overview of the endpoints with simplified JSON examples that demonstrate typical responses for each operation.
 
 Additional Information
