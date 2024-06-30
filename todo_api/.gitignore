@@ -1,0 +1,21 @@
+# Compiled output
+/target/
+/build/
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Maven specific
+.mvn/
+mvnw
+mvnw.cmd
+
+# Spring Boot specific
+spring-boot-starter-cache/
+spring-boot-starter-data-jpa/

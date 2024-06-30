@@ -1,0 +1,12 @@
+<div class="row justify-content-lg-end">
+    <div class="col-lg-3 col-sm-12 mb-4">
+        <form role="search">
+            <select class="form-select"  aria-label="Select state" (change)="onUserFilterChange($event)">
+                <option value="">Select user</option>
+                <ng-container *ngFor="let user of users; let i = index">
+                    <option value="{{ user.id }}">{{ user.fullName }}</option>
+                </ng-container>
+            </select>
+        </form>
+    </div>
+</div>

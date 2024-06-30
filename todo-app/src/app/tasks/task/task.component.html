@@ -1,0 +1,18 @@
+<th scope="row">{{ index }}</th>
+<td>{{ task.title }}</td>
+<td>{{ task.description }}</td>
+<td>
+    <span class="badge bg-{{ getBadgeColor(task.state) }}">{{ task.state | stateToString }}</span>
+</td>
+<td>{{ task.user.fullName }}</td>
+<td>{{ task.created_at | relativeTime }}</td>
+<td>
+    <div class="btn-group" role="group">
+        <button class="btn btn-sm btn-outline-warning" (click)="operationTask('update', task)">
+            <fa-icon [icon]="faPen"></fa-icon>
+        </button>
+        <button class="btn btn-sm btn-outline-danger" (click)="operationTask('delete', task)">
+            <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+    </div>
+</td>

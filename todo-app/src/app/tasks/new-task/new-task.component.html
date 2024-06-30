@@ -1,0 +1,42 @@
+<div class="card card-primary mb-4">
+    <div class="card-header">New task</div>
+    <div class="card-body">
+        <form class="row g-3" (ngSubmit)="onSubmit()">
+            <div class="col-2">
+                <label htmlFor="title" class="visually-hidden">Title</label>
+                <input type="text" class="form-control" name="title" id="title"
+                placeholder="Enter title" [(ngModel)]="newTask.title" [disabled]="operationFlag === 'delete'" required/>
+            </div>
+            <div class="col-4">
+                <label htmlFor="description" class="visually-hidden">Description</label>
+                <input type="text" class="form-control" id="description" name="description"
+                placeholder="Enter description" [(ngModel)]="newTask.description" [disabled]="operationFlag === 'delete'" required/>
+            </div>
+            <div class="col-2">
+                <label htmlFor="state" class="visually-hidden">State</label>
+                <select class="form-select" id="state" name="state" aria-label="Select state"
+                [(ngModel)]="newTask.state" [disabled]="operationFlag === 'delete'" required>
+                    <option>Select state</option>
+                    <option value="{{ State.PENDING }}">Pending</option>
+                    <option value="{{ State.IN_PROGRESS }}">In Progress</option>
+                    <option value="{{ State.COMPLETED }}">Completed</option>
+                </select>
+            </div>
+            <div class="col-2">
+                <label htmlFor="user" class="visually-hidden">User</label>
+                <select class="form-select" id="user" name="user" aria-label="Select user"
+                [(ngModel)]="newTask.user.id" [disabled]="operationFlag === 'delete'" required>
+                    <option value="">Select user</option>
+                    <ng-container *ngFor="let user of users; let i = index">
+                        <option value="{{ user.id }}">{{ user.fullName }}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn" [ngClass]="{'btn-primary': operationFlag === 'create', 'btn-warning': operationFlag === 'update', 'btn-danger': operationFlag === 'delete'}">
+                    {{ operationFlag === 'create' ? 'Create' : operationFlag === 'update' ? 'Update' : 'Delete' }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
